@@ -37,7 +37,7 @@ const UploadFile =
       useState<boolean>(
         false
       );
-
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     const [
       data,
       setData,
@@ -51,6 +51,7 @@ const UploadFile =
       >(
         []
       );
+    /* eslint-enable @typescript-eslint/no-explicit-any */
     const handleFileUpload =
       async (
         e: React.ChangeEvent<HTMLInputElement>
@@ -334,6 +335,8 @@ const UploadFile =
       match();
     }, [
       tabs,
+      data,
+      matchRecords,
     ]);
 
     return (

@@ -118,27 +118,6 @@ export default function Home() {
                   Upload
                   Document
                 </h3>
-                <p className="text-gray-600">
-                  Drag
-                  and
-                  drop
-                  or
-                  browse
-                  to
-                  upload
-                  your
-                  PDF,
-                  DOCX,
-                  or
-                  image
-                  files.
-                  Supports
-                  multiple
-                  formats
-                  and
-                  batch
-                  processing.
-                </p>
               </div>
 
               <div
@@ -158,26 +137,6 @@ export default function Home() {
                   AI
                   Processing
                 </h3>
-                <p className="text-gray-600">
-                  Our
-                  AI
-                  engine
-                  extracts
-                  key
-                  data
-                  points
-                  including
-                  dates,
-                  amounts,
-                  vendor
-                  information,
-                  and
-                  line
-                  items
-                  with
-                  high
-                  accuracy.
-                </p>
               </div>
 
               <div
@@ -198,27 +157,6 @@ export default function Home() {
                   &
                   Export
                 </h3>
-                <p className="text-gray-600">
-                  Review
-                  extracted
-                  data,
-                  make
-                  edits
-                  if
-                  needed,
-                  and
-                  export
-                  to
-                  your
-                  preferred
-                  format
-                  or
-                  integrate
-                  with
-                  your
-                  existing
-                  systems.
-                </p>
               </div>
             </div>
           </div>
