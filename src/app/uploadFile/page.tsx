@@ -56,6 +56,7 @@ const UploadFile =
       register,
       watch,
       reset,
+      setValue,
     } =
       useForm<{
         rows: Array<{
@@ -200,67 +201,14 @@ const UploadFile =
               ?.rows,
           ];
 
-        // Collect selected matches
-        const selectedMatches: Record<
-          string,
-          string
-        > =
-          {};
-
-        if (
-          matchRecords
-        ) {
-          Object.entries(
-            matchRecords.results
-          ).forEach(
-            ([
-              requestItem,
-            ]) => {
-              const selected =
-                (
-                  document.getElementById(
-                    `select-${requestItem}`
-                  ) as HTMLSelectElement
-                )
-                  ?.value;
-
-              selectedMatches[
-                requestItem
-              ] =
-                selected;
-            }
-          );
-        }
-
         // Replace "Request Item" in extract with matched selection
-        const updated =
-          extract.map(
-            (
-              item
-            ) => {
-              const original =
-                item[
-                  "Request Item"
-                ];
-              const matched =
-                selectedMatches[
-                  original
-                ];
-              return {
-                ...item,
-                "Request Item":
-                  matched ||
-                  original,
-              };
-            }
-          );
 
         // Create file
         const blob =
           new Blob(
             [
               JSON.stringify(
-                updated,
+                extract,
                 null,
                 2
               ),
@@ -688,7 +636,8 @@ const UploadFile =
                                 </td>
                               </tr>
                             )}
-                            {matchRecords &&
+                            {!submitting &&
+                              matchRecords &&
                               Object.entries(
                                 matchRecords.results
                               ).map(
@@ -711,7 +660,18 @@ const UploadFile =
                                     </td>
                                     <td className="border p-2">
                                       <select
-                                        id={`select-${requestItem}`}
+                                        onChange={(
+                                          e
+                                        ) => {
+                                          setValue(
+                                            `rows.${idx}.${[
+                                              "Request Item",
+                                            ]}`,
+                                            e
+                                              .target
+                                              .value
+                                          );
+                                        }}
                                         className="border rounded p-1 w-full"
                                       >
                                         {matches.map(
