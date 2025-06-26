@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📄 Document Processing Demo
 
-## Getting Started
+This is a web-based demo of an automated document extraction and matching system. Users can upload a document (e.g., a PDF), review and edit the extracted data, and then view AI-generated match suggestions based on each entry.
 
-First, run the development server:
+🎥 **Demo Video**: [Watch Demo on Google Drive](https://drive.google.com/file/d/1wRBWADmmY6YjOxuUUJ2EoLQW1u0ZmExK/view?usp=drive_link)
+
+
+
+## 📦 Setup Instructions
+
+Clone the repository and install dependencies using [Yarn](https://yarnpkg.com/):
 
 ```bash
-npm run dev
-# or
+git clone https://github.com/saumay23/document-parser.git
+cd document-parser
+yarn install
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 How to Try the Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Click "Try Demo"** to launch the application.
+2. **Upload a File** (PDF preferred). Supported formats: PDF, DOCX, JPG, PNG.
+3. Wait a few seconds while the system processes the document.
+4. **Extract Tab**:
+   - Shows the extracted line items.
+   - You can manually edit fields if needed.
+5. **Match Tab**:
+   - Displays top AI-generated match results for each item.
+   - You can choose the best match from a dropdown list.
+6. **Click "Save"** to combine the selected matches with the extracted data.
 
-## Learn More
+## 🛠️ Built With
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js** (App Router) – Full-stack React framework
+- **Tailwind CSS** – For fast, responsive UI styling
+- **Axios** – For handling file upload and API communication
+- **React Toastify** – For user notifications
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📦 Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Intelligent document parsing and field extraction
+- Editable extracted data table
+- AI-driven item matching using a third-party matching API
+- Clean and responsive UI
 
-## Deploy on Vercel
+## 📁 Folder Structure (Simplified)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

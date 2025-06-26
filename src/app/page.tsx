@@ -37,7 +37,10 @@ export default function Home() {
               </p>
 
               <div className="mt-4 flex items-center justify-center gap-x-6">
-                <button
+                <Link
+                  href={
+                    "/uploadFile"
+                  }
                   id="try-demo-btn"
                   className=" flex gap-2 items-center bg-[#0284c7] px-8 py-4 text-lg font-semibold text-white shadow-lg rounded-xl hover:bg-[#0369a1] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0ea5e9] transition-all duration-200 transform hover:scale-105"
                 >
@@ -49,8 +52,14 @@ export default function Home() {
                   />
                   Try
                   Demo
-                </button>
-                <span className="flex items-center text-lg font-semibold text-gray-900 hover:text-[#0284c7] transition-colors cursor-pointer">
+                </Link>
+                <Link
+                  target="_blank"
+                  href={
+                    "https://github.com/saumay23/document-parser"
+                  }
+                  className="flex items-center text-lg font-semibold text-gray-900 hover:text-[#0284c7] transition-colors cursor-pointer"
+                >
                   <FontAwesomeIcon
                     icon={
                       faGithub
@@ -60,7 +69,7 @@ export default function Home() {
                   View
                   on
                   GitHub
-                </span>
+                </Link>
               </div>
             </div>
           </div>
@@ -245,6 +254,7 @@ export default function Home() {
                 </span>
               </div>
               <Link
+                target="_blank"
                 href={
                   "https://www.linkedin.com/in/saumaykilla/"
                 }
@@ -258,6 +268,7 @@ export default function Home() {
                 />
               </Link>
               <Link
+                target="_blank"
                 href={
                   "https://github.com/saumay23"
                 }
