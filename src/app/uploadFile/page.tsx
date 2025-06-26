@@ -3,7 +3,12 @@ import {
   faCloudArrowUp,
   faFileText,
   faSearch,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  useForm,
+  useFieldArray,
+} from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, {
@@ -14,7 +19,6 @@ import {
   Bounce,
   toast,
 } from "react-toastify";
-import { nanoid } from "nanoid";
 
 type MatchResponse =
   {
@@ -39,18 +43,46 @@ const UploadFile =
       );
     /* eslint-disable @typescript-eslint/no-explicit-any */
     const [
-      data,
-      setData,
+      columns,
+      setColumns,
     ] =
       useState<
-        Array<{
-          [
-            key: string
-          ]: any;
-        }>
+        string[]
       >(
         []
       );
+    const {
+      control,
+      register,
+      watch,
+      reset,
+    } =
+      useForm<{
+        rows: Array<{
+          [
+            key: string
+          ]: any;
+        }>;
+      }>(
+        {
+          defaultValues:
+            {
+              rows: [],
+            },
+        }
+      );
+    const {
+      fields,
+      remove,
+      append,
+    } =
+      useFieldArray(
+        {
+          control,
+          name: "rows",
+        }
+      );
+
     /* eslint-enable @typescript-eslint/no-explicit-any */
     const handleFileUpload =
       async (
@@ -113,8 +145,16 @@ const UploadFile =
                   Bounce,
               }
             );
-            setData(
-              res?.data
+            setColumns(
+              Object.keys(
+                res
+                  ?.data?.[0]
+              )
+            );
+            reset(
+              {
+                rows: res?.data,
+              }
             );
           } catch (err) {
             console.error(
@@ -150,37 +190,14 @@ const UploadFile =
           }
         }
       };
-    const handleFieldChange =
-      (
-        rowIndex: number,
-        key: string,
-        value: string
-      ) => {
-        const updatedData =
-          [
-            ...data,
-          ];
-        updatedData[
-          rowIndex
-        ] =
-          {
-            ...updatedData[
-              rowIndex
-            ],
-            [key]:
-              value,
-          };
-        setData(
-          updatedData
-        );
-      };
 
     const handleSave =
       () => {
         // Clone extracted data
         const extract =
           [
-            ...data,
+            ...watch()
+              ?.rows,
           ];
 
         // Collect selected matches
@@ -292,16 +309,14 @@ const UploadFile =
         async () => {
           if (
             tabs ===
-              "match" &&
-            matchRecords ===
-              null
+            "match"
           ) {
             try {
               setSubmitting(
                 true
               );
               const requestItems =
-                data?.map(
+                watch()?.rows?.map(
                   (
                     obj
                   ) =>
@@ -335,13 +350,13 @@ const UploadFile =
       match();
     }, [
       tabs,
-      data,
-      matchRecords,
     ]);
 
     return (
       <div className="w-screen h-screen flex  justify-center mx-auto py-6 sm:px-6 lg:px-8">
-        {data?.length ===
+        {watch()
+          ?.rows
+          ?.length ===
         0 ? (
           submitting ? (
             <div className="w-screen h-screen flex items-center justify-center bg-white">
@@ -521,25 +536,37 @@ const UploadFile =
                           Line
                           Items
                         </h3>
+                        <button
+                          onClick={() => {
+                            append(
+                              {}
+                            );
+                          }}
+                          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-[#0284c7] hover:bg-[#0369a1]"
+                        >
+                          Add
+                          LineItem
+                        </button>
                       </div>
                       <div className="overflow-x-auto border border-gray-200 rounded-md shadow-sm">
                         <table className="min-w-full divide-y divide-gray-200">
                           <thead className="bg-gray-50">
                             <tr>
-                              {Object.entries(
-                                data?.[0]
-                              )?.map(
-                                ([
-                                  key,
-                                ]) => {
+                              {columns?.map(
+                                (
+                                  col,
+                                  idx
+                                ) => {
                                   return (
                                     <th
-                                      key={nanoid()}
+                                      key={
+                                        idx
+                                      }
                                       scope="col"
                                       className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                     >
                                       {
-                                        key
+                                        col
                                       }
                                     </th>
                                   );
@@ -548,52 +575,55 @@ const UploadFile =
                             </tr>
                           </thead>
                           <tbody className="bg-white divide-y divide-gray-200">
-                            {data?.map(
+                            {fields?.map(
                               (
-                                item,
-                                index
+                                field,
+                                rowIndex
                               ) => (
                                 <tr
                                   key={
-                                    index
+                                    field.id
                                   }
-                                  className="mb-4 p-3 border rounded"
                                 >
-                                  {Object.entries(
-                                    item
-                                  )?.map(
-                                    ([
-                                      key,
-                                      value,
-                                    ]) => (
-                                      <td
-                                        className="px-3 py-4 whitespace-nowrap text-sm text-gray-900"
-                                        key={
-                                          key
-                                        }
-                                      >
-                                        <input
-                                          type="text"
-                                          className="block w-full border-0 p-0 focus:ring-0 sm:text-sm text-gray-900"
-                                          defaultValue={
-                                            value ||
-                                            ""
+                                  {columns?.map(
+                                    (
+                                      col
+                                    ) => {
+                                      return (
+                                        <td
+                                          className="px-3 py-4 whitespace-nowrap text-sm text-gray-900"
+                                          key={
+                                            col
                                           }
-                                          onChange={(
-                                            e
-                                          ) =>
-                                            handleFieldChange(
-                                              index,
-                                              key,
-                                              e
-                                                .target
-                                                .value
-                                            )
-                                          }
-                                        />
-                                      </td>
-                                    )
+                                        >
+                                          <input
+                                            type="text"
+                                            className="block w-full border-0 p-0 focus:ring-0 sm:text-sm text-gray-900"
+                                            {...register(
+                                              `rows.${rowIndex}.${col}`
+                                            )}
+                                          />
+                                        </td>
+                                      );
+                                    }
                                   )}
+                                  <td>
+                                    <button
+                                      type="button"
+                                      onClick={() =>
+                                        remove(
+                                          rowIndex
+                                        )
+                                      }
+                                    >
+                                      <FontAwesomeIcon
+                                        icon={
+                                          faTrash
+                                        }
+                                        className="text-red-400 w-4 h-4"
+                                      />
+                                    </button>
+                                  </td>
                                 </tr>
                               )
                             )}
