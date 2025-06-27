@@ -13,9 +13,13 @@ export async function POST(
     formData.get(
       "file"
     ) as File;
-
+  const endpoint =
+    process
+      .env
+      .EXTRACTION_API;
   if (
-    !file
+    !file ||
+    !endpoint
   )
     return NextResponse.json(
       {
@@ -37,7 +41,7 @@ export async function POST(
   try {
     const request =
       await axios.post(
-        `https://plankton-app-qajlk.ondigitalocean.app/extraction_api`,
+        endpoint,
         backendForm
       );
 

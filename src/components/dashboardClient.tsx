@@ -135,7 +135,8 @@ const DashboardClient =
           try {
             const res =
               await axios.post(
-                "/api/extractFromFile",
+                // "/api/extractFromFile", // original extraction api
+                "/api/customExtractFromFile", // custom extraction api
                 formData,
                 {
                   headers:
