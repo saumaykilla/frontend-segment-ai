@@ -101,7 +101,11 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 📽️ Demo Video
+## 📽️ Demo 
+
+
+Try the demo here:  
+[Demo](https://document-parser-super-base.vercel.app/)
 
 Watch the demo here:  
 [Demo Video on Google Drive](https://drive.google.com/file/d/1RyNZuEc43DhGHq2-WgGUjnUMkwiVW6Pe/view?usp=drive_link)
