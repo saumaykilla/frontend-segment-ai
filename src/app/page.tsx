@@ -33,13 +33,14 @@ export default function Home() {
                 Extract
                 data
                 from
-                Document
+                Sales
+                Order
               </p>
 
               <div className="mt-4 flex items-center justify-center gap-x-6">
                 <Link
                   href={
-                    "/uploadFile"
+                    "/dashboard"
                   }
                   id="try-demo-btn"
                   className=" flex gap-2 items-center bg-[#0284c7] px-8 py-4 text-lg font-semibold text-white shadow-lg rounded-xl hover:bg-[#0369a1] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0ea5e9] transition-all duration-200 transform hover:scale-105"
@@ -155,7 +156,7 @@ export default function Home() {
                   3.
                   Review
                   &
-                  Export
+                  Save
                 </h3>
               </div>
             </div>
