@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter =
   Inter(
@@ -37,6 +38,7 @@ export default function RootLayout({
         {
           children
         }
+        <Analytics />
       </body>
     </html>
   );
