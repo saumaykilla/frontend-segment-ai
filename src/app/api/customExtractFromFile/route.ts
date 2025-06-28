@@ -50,7 +50,7 @@ export async function POST(
     const contents =
       [
         {
-          text: "extract the order line items from the uploaded file, rename the field containing details of the item like (Brass Nut 1/2 20mm Galvanized Coarse) as Request Item",
+          text: "extract the order line items from the uploaded file, rename the field containing details of the item like (Brass Nut 1/2 20mm Galvanized Coarse) as Request Item ",
         },
         {
           inlineData:
