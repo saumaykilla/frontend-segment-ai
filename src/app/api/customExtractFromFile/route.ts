@@ -50,7 +50,7 @@ export async function POST(
     const contents =
       [
         {
-          text: "extract the order line items from the uploaded file",
+          text: "extract the order line items from the uploaded file keep the description field as Request Item",
         },
         {
           inlineData:
