@@ -142,141 +142,115 @@ export function LoginForm({}: React.ComponentPropsWithoutRef<"div">) {
 
   return (
     <main className="flex w-screen h-screen justify-center items-center">
-      <section
-        id="register-section"
-        className=" flex items-center justify-center "
-      >
-        <div className="max-w-md w-full mx-auto">
-          <div
-            id="register-card"
-            className="bg-white rounded-2xl shadow-xl p-8"
-          >
-            <div className="text-center ">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#0ea5e9] to-[#0369a1] rounded-2xl flex items-center justify-center mx-auto ">
-                <FontAwesomeIcon
-                  icon={
-                    faFileLines
-                  }
-                  className="w-5 h-5 text-white"
+      <div className=" w-xs md:w-md mx-auto flex items-center justify-center flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden">
+        <div
+          id="login-form"
+          className="w-full  p-8 md:p-12 bg-white"
+        >
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            Sign
+            In
+          </h3>
+          <form>
+            <div
+              className="flex flex-col gap-2"
+              id="email-field"
+            >
+              <label className="block text-sm font-medium text-gray-700 ">
+                Email
+                Address
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <FontAwesomeIcon
+                    className="w-4 h-4 text-gray-400"
+                    icon={
+                      faEnvelope
+                    }
+                  />
+                </div>
+                <input
+                  type="email"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  placeholder="Enter your email"
+                  {...register(
+                    "email"
+                  )}
                 />
               </div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-2">
-                Sign
-                Into
-                Your
-                Account
-              </h1>
-            </div>
-
-            <form
-              id="login-form"
-              className="space-y-6"
-            >
-              <div
-                className="flex flex-col gap-2"
-                id="email-field"
-              >
-                <label className="block text-sm font-medium text-gray-700 ">
-                  Email
-                  Address
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <FontAwesomeIcon
-                      className="w-4 h-4 text-gray-400"
-                      icon={
-                        faEnvelope
-                      }
-                    />
-                  </div>
-                  <input
-                    type="email"
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter your email"
-                    {...register(
-                      "email"
-                    )}
-                  />
-                </div>
-                {errors
-                  ?.email
-                  ?.message && (
-                  <p className="text-sm text-red-500">
-                    {
-                      errors
-                        ?.email
-                        ?.message
-                    }
-                  </p>
-                )}
-              </div>
-
-              <div
-                className="flex flex-col gap-2"
-                id="password-field"
-              >
-                <label className="block text-sm font-medium text-gray-700 ">
-                  Password
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <FontAwesomeIcon
-                      className="w-4 h-4 text-gray-400"
-                      icon={
-                        faLock
-                      }
-                    />
-                  </div>
-                  <input
-                    type="password"
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Create a password"
-                    {...register(
-                      "password"
-                    )}
-                  />
-                </div>
-                {errors
-                  ?.password
-                  ?.message && (
-                  <p className="text-sm text-red-500">
-                    {
-                      errors
-                        ?.password
-                        ?.message
-                    }
-                  </p>
-                )}
-              </div>
-              {error && (
+              {errors
+                ?.email
+                ?.message && (
                 <p className="text-sm text-red-500">
                   {
-                    error
+                    errors
+                      ?.email
+                      ?.message
                   }
                 </p>
               )}
-              <button
-                type="submit"
-                disabled={
-                  isLoading
-                }
-                onClick={handleSubmit(
-                  handleLogin
-                )}
-                className="w-full bg-gradient-to-br from-[#0ea5e9] to-[#0369a1] text-white py-3 rounded-lg  font-medium transition-all duration-200"
-              >
-                Sign
-                Into
-                Your
-                Account
-              </button>
-            </form>
+            </div>
 
             <div
-              id="login-link"
-              className="mt-6 text-center"
+              className="flex flex-col gap-2"
+              id="password-field"
             >
-              <p className="text-gray-600">
+              <label className="block text-sm font-medium text-gray-700 ">
+                Password
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <FontAwesomeIcon
+                    className="w-4 h-4 text-gray-400"
+                    icon={
+                      faLock
+                    }
+                  />
+                </div>
+                <input
+                  type="password"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  placeholder="Create a password"
+                  {...register(
+                    "password"
+                  )}
+                />
+              </div>
+              {errors
+                ?.password
+                ?.message && (
+                <p className="text-sm text-red-500">
+                  {
+                    errors
+                      ?.password
+                      ?.message
+                  }
+                </p>
+              )}
+            </div>
+
+            {error && (
+              <p className="text-sm text-red-500 py-2">
+                {
+                  error
+                }
+              </p>
+            )}
+            <button
+              type="submit"
+              disabled={
+                isLoading
+              }
+              onClick={handleSubmit(
+                handleLogin
+              )}
+              className="w-full mt-4 bg-primary-500 hover:bg-primary-600 text-white py-2 px-4 rounded-md font-medium transition-colors"
+            >
+              Log
+              In
+            </button>
+            <div className="flex items-center justify-end pt-4 ">
+              <span className="text-sm text-primary-600 hover:text-primary-700">
                 Don&apos;t
                 have
                 an
@@ -285,17 +259,17 @@ export function LoginForm({}: React.ComponentPropsWithoutRef<"div">) {
                   href={
                     "/auth/sign-up"
                   }
-                  className="text-[#0ea5e9] hover:underline cursor-pointer font-medium"
+                  className="text-primary-500 hover:underline cursor-pointer font-medium"
                 >
                   Sign
                   up
                   here
                 </Link>
-              </p>
+              </span>
             </div>
-          </div>
+          </form>
         </div>
-      </section>
+      </div>
     </main>
   );
 }

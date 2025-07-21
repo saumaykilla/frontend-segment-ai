@@ -19,9 +19,9 @@ const inter =
 export const metadata: Metadata =
   {
     title:
-      "Document Processor",
+      "Segment Sight ",
     description:
-      "A AI powered Sales Document Processor",
+      "A AI Product Analyzed ",
   };
 
 export default function RootLayout({

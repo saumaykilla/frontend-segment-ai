@@ -4,165 +4,511 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import {
-  faBrain,
-  faCheckDouble,
-  faCloudArrowUp,
-  faFileLines,
-  faPlay,
+  faBars,
+  faBolt,
+  faBullseye,
+  faChartLine,
+  faLayerGroup,
+  faLightbulb,
+  faLineChart,
+  faMagnifyingGlassChart,
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="w-screen h-screen">
-      <main id="main-content">
-        <section
-          id="hero-section"
-          className="relative py-20 sm:py-24 lg:py-32"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center flex flex-col gap-6">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-                AI-Powered
-                Document
-                <span className="text-[#0284c7]">
-                  Processing
+      <header
+        id="header"
+        className="bg-white border-b border-gray-200 py-4 px-6"
+      >
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="flex items-center">
+            <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center mr-3">
+              <FontAwesomeIcon
+                icon={
+                  faLineChart
+                }
+                className="w-5 h-5 text-white"
+              />
+            </div>
+            <span className="font-semibold text-gray-800 text-lg ml-2">
+              SegmentSight
+            </span>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <Link
+              href={
+                "/auth/login"
+              }
+            >
+              <span className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-md transition-colors cursor-pointer">
+                Get
+                Started
+              </span>
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      <section
+        id="hero"
+        className="bg-gradient-to-r from-primary-50 to-blue-50 py-16 px-6"
+      >
+        <div className="container mx-auto flex flex-col md:flex-row items-center md:items-stretch">
+          <div className="md:w-1/2 mb-10 md:mb-0 flex flex-col justify-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              AI-Powered
+              SWOT
+              Analysis
+              for
+              Strategic
+              Decisions
+            </h1>
+            <p className="text-lg text-gray-700 mb-8">
+              SegmentSight
+              helps
+              product
+              teams
+              generate
+              strategic
+              insights
+              for
+              specific
+              customer
+              segments
+              with
+              AI-powered
+              SWOT
+              analysis
+              and
+              actionable
+              recommendations.
+            </p>
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <Link
+                href={
+                  "/auth/login"
+                }
+              >
+                <span className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-md text-center font-medium transition-colors cursor-pointer">
+                  Get
+                  Started
+                  Free
                 </span>
-              </h1>
-              <p className="text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
-                Extract
-                data
-                from
-                Sales
-                Order
-              </p>
-
-              <div className="mt-4 flex items-center justify-center gap-x-6">
-                <Link
-                  href={
-                    "/dashboard"
-                  }
-                  id="try-demo-btn"
-                  className=" flex gap-2 items-center bg-[#0284c7] px-8 py-4 text-lg font-semibold text-white shadow-lg rounded-xl hover:bg-[#0369a1] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0ea5e9] transition-all duration-200 transform hover:scale-105"
-                >
-                  <FontAwesomeIcon
-                    icon={
-                      faPlay
-                    }
-                    className="w-5 h-5 "
-                  />
-                  Try
-                  Demo
-                </Link>
-                <Link
-                  target="_blank"
-                  href={
-                    "https://github.com/saumay23/document-parser"
-                  }
-                  className="flex items-center text-lg font-semibold text-gray-900 hover:text-[#0284c7] transition-colors cursor-pointer"
-                >
-                  <FontAwesomeIcon
-                    icon={
-                      faGithub
-                    }
-                    className="w-5 h-5 mr-2"
-                  />
-                  View
-                  on
-                  GitHub
-                </Link>
-              </div>
+              </Link>
             </div>
           </div>
-        </section>
+          <div className="w-full md:w-1/2 relative">
+            <Image
+              src="/heroSection.png"
+              alt="modern dashboard UI with SWOT analysis charts and AI insights, professional business analytics interface, clean design"
+              fill
+              className="object-cover rounded-lg shadow-xl"
+            />
+          </div>
+        </div>
+      </section>
 
-        <section
-          id="how-it-works"
-          className="py-16 bg-white/50"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                How
-                It
-                Works
-              </h2>
-              <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
-                Three
-                simple
-                steps
+      <section
+        id="features"
+        className="py-16 px-6 bg-white"
+      >
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Powerful
+              Features
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              SegmentSight
+              provides
+              everything
+              you
+              need
+              to
+              make
+              data-driven
+              strategic
+              decisions
+              for
+              your
+              products
+              and
+              customer
+              segments.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+              id="feature-1"
+              className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                <FontAwesomeIcon
+                  icon={
+                    faBolt
+                  }
+                  className="text-primary-600 w-6 h-6"
+                />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                AI-Powered
+                Analysis
+              </h3>
+              <p className="text-gray-600">
+                Our
+                advanced
+                AI
+                analyzes
+                market
+                data
                 to
-                transform
+                generate
+                comprehensive
+                SWOT
+                insights
+                tailored
+                to
                 your
-                documents
-                into
-                structured
-                data
+                specific
+                customer
+                segments.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div
-                id="step-1"
-                className="text-center"
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0ea5e9] to-[#0369a1] rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <FontAwesomeIcon
-                    icon={
-                      faCloudArrowUp
-                    }
-                    className="w-5 h-5 text-white"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  1.
-                  Upload
-                  Document
-                </h3>
+            <div
+              id="feature-2"
+              className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                <FontAwesomeIcon
+                  icon={
+                    faBullseye
+                  }
+                  className="text-primary-600 w-6 h-6"
+                />
               </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Segment
+                Targeting
+              </h3>
+              <p className="text-gray-600">
+                Generate
+                insights
+                for
+                specific
+                customer
+                segments
+                to
+                understand
+                their
+                unique
+                needs,
+                pain
+                points,
+                and
+                opportunities.
+              </p>
+            </div>
 
-              <div
-                id="step-2"
-                className="text-center"
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0ea5e9] to-[#0369a1] rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <FontAwesomeIcon
-                    icon={
-                      faBrain
-                    }
-                    className="w-5 h-5 text-white"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  2.
-                  AI
-                  Processing
-                </h3>
+            <div
+              id="feature-3"
+              className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                <FontAwesomeIcon
+                  icon={
+                    faLayerGroup
+                  }
+                  className="text-primary-600 w-6 h-6"
+                />
               </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Comprehensive
+                Reports
+              </h3>
+              <p className="text-gray-600">
+                Get
+                detailed
+                reports
+                covering
+                SWOT
+                analysis,
+                marketing
+                OKRs,
+                market
+                positioning,
+                buyer
+                personas,
+                and
+                more.
+              </p>
+            </div>
 
-              <div
-                id="step-3"
-                className="text-center"
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0ea5e9] to-[#0369a1] rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <FontAwesomeIcon
-                    icon={
-                      faCheckDouble
-                    }
-                    className="w-5 h-5 text-white"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  3.
-                  Review
-                  &
-                  Save
-                </h3>
+            <div
+              id="feature-4"
+              className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                <FontAwesomeIcon
+                  icon={
+                    faChartLine
+                  }
+                  className="text-primary-600 w-6 h-6"
+                />
               </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Competitive
+                Analysis
+              </h3>
+              <p className="text-gray-600">
+                Understand
+                your
+                position
+                in
+                the
+                market
+                and
+                identify
+                opportunities
+                to
+                differentiate
+                from
+                competitors.
+              </p>
+            </div>
+
+            <div
+              id="feature-5"
+              className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                <FontAwesomeIcon
+                  icon={
+                    faMagnifyingGlassChart
+                  }
+                  className="text-primary-600 w-6 h-6"
+                />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Comparison
+                Tools
+              </h3>
+              <p className="text-gray-600">
+                Compare
+                insights
+                across
+                different
+                segments,
+                products,
+                or
+                time
+                periods
+                to
+                identify
+                trends
+                and
+                make
+                better
+                decisions.
+              </p>
+            </div>
+
+            <div
+              id="feature-6"
+              className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                <FontAwesomeIcon
+                  icon={
+                    faLightbulb
+                  }
+                  className="text-primary-600 w-6 h-6"
+                />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Strategic
+                Recommendations
+              </h3>
+              <p className="text-gray-600">
+                Get
+                actionable
+                recommendations
+                to
+                improve
+                your
+                product
+                strategy
+                based
+                on
+                AI-generated
+                insights.
+              </p>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      <section
+        id="how-it-works"
+        className="py-16 px-6 bg-gray-50"
+      >
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              How
+              It
+              Works
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              SegmentSight
+              makes
+              it
+              easy
+              to
+              generate
+              strategic
+              insights
+              in
+              just
+              a
+              few
+              simple
+              steps.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div
+              id="step-1"
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-6">
+                1
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Select
+                Your
+                Product
+              </h3>
+              <p className="text-gray-600">
+                Choose
+                the
+                product
+                or
+                service
+                you
+                want
+                to
+                analyze
+                from
+                your
+                dashboard.
+              </p>
+            </div>
+
+            <div
+              id="step-2"
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-6">
+                2
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Define
+                Your
+                Segment
+              </h3>
+              <p className="text-gray-600">
+                Specify
+                the
+                customer
+                segment
+                and
+                business
+                objective
+                you
+                want
+                to
+                focus
+                on.
+              </p>
+            </div>
+
+            <div
+              id="step-3"
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-6">
+                3
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Get
+                Insights
+              </h3>
+              <p className="text-gray-600">
+                Our
+                AI
+                generates
+                comprehensive
+                insights
+                and
+                recommendations
+                for
+                your
+                specific
+                needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="cta"
+        className="py-16 px-6 bg-primary-600 text-white"
+      >
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">
+            Ready
+            to
+            Transform
+            Your
+            Product
+            Strategy?
+          </h2>
+          <p className="text-lg mb-8 max-w-2xl mx-auto">
+            Join
+            thousands
+            of
+            product
+            managers
+            using
+            SegmentSight
+            to
+            make
+            data-driven
+            decisions.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <Link
+              href={
+                "/auth/login"
+              }
+            >
+              <span className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-3 rounded-md text-center font-medium transition-colors cursor-pointer">
+                Get
+                Started
+                Free
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
       <footer
         id="footer"
         className="bg-white border-t border-gray-200"
@@ -170,16 +516,16 @@ export default function Home() {
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
-              <div className="w-8 h-8 bg-gradient-to-br from-[#0ea5e9] to-[#0369a1] rounded-lg flex items-center justify-center mr-3">
+              <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center mr-3">
                 <FontAwesomeIcon
                   icon={
-                    faFileLines
+                    faLineChart
                   }
                   className="w-5 h-5 text-white"
                 />
               </div>
               <span className="text-xl font-bold text-gray-900">
-                DocProcessor
+                SegmentSight
               </span>
             </div>
 
@@ -197,7 +543,7 @@ export default function Home() {
                 href={
                   "https://www.linkedin.com/in/saumaykilla/"
                 }
-                className="text-gray-400 hover:text-[#0284c7] transition-colors cursor-pointer"
+                className="text-gray-400 hover:text-primary-600 transition-colors cursor-pointer"
               >
                 <FontAwesomeIcon
                   icon={
@@ -211,7 +557,7 @@ export default function Home() {
                 href={
                   "https://github.com/saumay23"
                 }
-                className="text-gray-400 hover:text-[#0284c7] transition-colors cursor-pointer"
+                className="text-gray-400 hover:text-primary-600 transition-colors cursor-pointer"
               >
                 <FontAwesomeIcon
                   icon={
