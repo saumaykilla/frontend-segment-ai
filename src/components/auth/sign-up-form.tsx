@@ -14,7 +14,6 @@ import * as Yup from "yup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
-  faFileLines,
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
 

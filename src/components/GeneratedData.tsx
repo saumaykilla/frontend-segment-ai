@@ -12,7 +12,6 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowLeft,
-  faBars,
   faBookmark,
   faBullseye,
   faChartSimple,
@@ -115,6 +114,9 @@ const GeneratedData =
             }
           );
         } catch (error) {
+          console.log(
+            error
+          );
           toast.error(
             "Failed to Save the Insights",
             {
@@ -194,7 +196,6 @@ const GeneratedData =
 
     const [
       tabs,
-      setTabs,
     ] =
       useState<
         string[]

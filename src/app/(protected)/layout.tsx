@@ -2,11 +2,6 @@ import { redirect } from "next/navigation";
 
 import { createClient } from "@/lib/supabase/server";
 import Sidebar from "@/components/Sidebar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLineChart,
-  faSignOutAlt,
-} from "@fortawesome/free-solid-svg-icons";
 import MobileHeader from "@/components/MobileHeader";
 
 export default async function ProtectedLayout({

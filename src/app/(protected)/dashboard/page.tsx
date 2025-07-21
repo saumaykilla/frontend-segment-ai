@@ -12,7 +12,7 @@ import {
   toast,
 } from "react-toastify";
 
-const page =
+const Dashboard =
   () => {
     const router =
       useRouter();
@@ -61,7 +61,11 @@ const page =
               setResult(
                 data
               );
-          } catch (error) {}
+          } catch (error) {
+            console.log(
+              error
+            );
+          }
         };
       fetchData();
     }, []);
@@ -203,6 +207,9 @@ const page =
                                   )
                               );
                             } catch (error) {
+                              console.log(
+                                error
+                              );
                               toast.error(
                                 "Failed to delete the data",
                                 {
@@ -347,6 +354,9 @@ const page =
                               )
                           );
                         } catch (error) {
+                          console.log(
+                            error
+                          );
                           toast.error(
                             "Failed to delete the data",
                             {
@@ -392,4 +402,4 @@ const page =
     );
   };
 
-export default page;
+export default Dashboard;

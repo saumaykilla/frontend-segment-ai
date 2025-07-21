@@ -19,7 +19,6 @@ import {
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -92,7 +91,7 @@ const FormSchema =
       }
     );
 
-const page =
+const Create =
   () => {
     const [
       loading,
@@ -154,7 +153,8 @@ const page =
         );
       } catch (error) {
         console.log(
-          "error in getting result"
+          "error in getting result",
+          error
         );
         toast.error(
           "Something went wrong, Please try Again !!!",
@@ -532,4 +532,4 @@ const page =
     );
   };
 
-export default page;
+export default Create;

@@ -4,7 +4,6 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import {
-  faBars,
   faBolt,
   faBullseye,
   faChartLine,
