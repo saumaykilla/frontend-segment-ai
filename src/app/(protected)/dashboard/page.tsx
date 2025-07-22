@@ -36,6 +36,13 @@ const Dashboard =
         async () => {
           const supabase =
             await createClient();
+          const user_id =
+            (
+              await supabase.auth.getUser()
+            )
+              .data
+              .user
+              ?.id;
           try {
             const {
               data,
@@ -47,6 +54,10 @@ const Dashboard =
                 )
                 .select(
                   "id, objective, productName, segment, generateDate"
+                )
+                .eq(
+                  "user_id",
+                  user_id
                 );
             if (
               error

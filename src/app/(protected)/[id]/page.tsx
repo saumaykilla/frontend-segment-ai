@@ -16,6 +16,7 @@ const ViewInsight =
       await params;
     const supabase =
       await createClient();
+
     const {
       data,
       error,

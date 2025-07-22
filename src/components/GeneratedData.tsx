@@ -67,7 +67,13 @@ const GeneratedData =
         try {
           const supabase =
             await createClient();
-
+          const user_id =
+            (
+              await supabase.auth.getUser()
+            )
+              ?.data
+              .user
+              ?.id;
           const {
             error,
           } =
@@ -77,6 +83,8 @@ const GeneratedData =
               )
               .insert(
                 {
+                  user_id:
+                    user_id,
                   ...payload,
                 }
               );
